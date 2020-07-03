@@ -20,10 +20,12 @@ function printKata(kataNumber, object) {
     //
     // http://mdn.io/json.stringify
     const stringifiedObject = JSON.stringify(object)
+    stringifiedObject
     detailsElement.append(stringifiedObject)
 }
 
-const greenEyes1 = users.filter(user => user.eyeColor === "green")
+const greenEyes1 = users.filter(user => user.eyeColor === "green").map(user => user.name)
+
 // OR...
 // const greenEyes2 = users.filter(function (user) {
 //     return user.eyeColor === "green"
@@ -32,7 +34,7 @@ printKata(0, greenEyes1)   // If you don't have this function already, see the "
 
 //Kata 1: Use the .filter() method
 //Filter the users array to show only the users with an isActive property of true.
-const userIsActive = users.filter(user => user.isActive)
+const userIsActive = users.filter(user => user.isActive).map(user => user.name)
 
 // const userIsActive = users.filter(function (user) {
 //     return user.isActive
@@ -52,7 +54,7 @@ printKata(3, userCompany)
 // Kata 4: Use the .find() method
 // Find the first user in the array over the age of 38.
 const userOver38 = users.find(user => user.age > 38)
-printKata(4, userOver38)
+printKata(4, userOver38.name)
 
 // Kata 5: Use the .filter() and .find() methods
 // Find the first user in the array over the age of 38 who is active.
@@ -67,5 +69,12 @@ printKata(6, userZencoBalance)
 // Kata 7: Use the .filter() method with .includes() and the .map() method
 // Show the age of every user with the "fugiat" tag.
 const userFugiat = users.filter(user => user.tags.includes("fugiat")).map(user => user.age)
+
+// const userFugiat = users.filter(function (user) {
+//     return user.tags.includes('fugiat')
+// })
+//     .map(function (user) {
+//         return user.age
+//     })
 
 printKata(7, userFugiat)
